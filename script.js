@@ -29,7 +29,39 @@ window.addEventListener("load", function () {
            <br> `;
             };
     
-            
+            pickNewPlanet();
+    
+            let planetPicker = document.getElementById("planetPicker");
+            planetPicker.addEventListener("click", function () {
+              pickNewPlanet();
+            });
+          });
+        }
+      );
+    
+      let hasNumber = (myString) => {
+        return /\d/.test(myString);
+      };
+    
+      submitBtn.addEventListener("click", function () {
+        let pilotString = hasNumber(pilotName.value);
+        let copilotString = hasNumber(copilotName.value);
+    
+        if (
+          pilotName.value === "" ||
+          pilotString ||
+          copilotName.value === "" ||
+          copilotString ||
+          fuelLevel.value === "" ||
+          isNaN(fuelLevel.value) ||
+          cargoMass.value === "" ||
+          isNaN(cargoMass.value)
+        ) 
+        {
+          window.alert("All fields must be filled in with correct data type.");
+        };
+    
+       
  
 /* This block of code shows how to format the HTML once you fetch some planetary JSON!
 <h2>Mission Destination</h2>
